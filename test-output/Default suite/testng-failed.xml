@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MichaelSeleniumAutomation.ExtractDataFromExcel.dataProviderTest">
+      <class name="MichaelSeleniumAutomation.ExtractDataFromExcel.UploadAndDownloadFile">
         <methods>
-          <include name="getDataFromArray"/>
+          <include name="downLoadAndUpload"/>
         </methods>
-      </class> <!-- MichaelSeleniumAutomation.ExtractDataFromExcel.dataProviderTest -->
+      </class> <!-- MichaelSeleniumAutomation.ExtractDataFromExcel.UploadAndDownloadFile -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

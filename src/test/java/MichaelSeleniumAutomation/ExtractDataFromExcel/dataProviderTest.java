@@ -17,8 +17,10 @@ import org.testng.annotations.Test;
 public class dataProviderTest {
 	 // belew im readint the data from and excel document and returning it into and array and passing dataprovider with a tag
 	@Test(dataProvider = "wins")
-	public void getDataFromArray(String name, String provider, String visible,String platform, String code) {
-
+	public void getDataFromArray(String name, String provider, String visible,String platform, String code) throws IOException {
+ //String locationOfFile = System.getProperty("/Users/michaeldjamba/Lithium/Source/app-lithium-full/service-games/service-games/sql/20171026 All Games.xlsx");
+ //dataExtraction(locationOfFile);
+ 
 		System.out.println(name + " " + provider + " " + visible + " " + platform + " " + code);
 
 	}
@@ -28,9 +30,9 @@ public class dataProviderTest {
 		
 		DataFormatter formatter = new DataFormatter();// used to format the data from the sheet
 		
-		FileInputStream file = new FileInputStream(
-				"/Users/michaeldjamba/Lithium/Source/app-lithium-full/service-games/service-games/sql/20171026 All Games.xlsx");
+		FileInputStream file = new FileInputStream("/Users/michaeldjamba/Lithium/Source/app-lithium-full/service-games/service-games/sql/20171026 All Games.xlsx");
 
+		
 		XSSFWorkbook wholeDoc = new XSSFWorkbook(file);
 
 		XSSFSheet sheet = wholeDoc.getSheetAt(0);
@@ -52,11 +54,12 @@ public class dataProviderTest {
 				formatter.formatCellValue(cell); // format the cell into a string
 				data[i][c] = formatter.formatCellValue(cell);   // add the data in a multi dimensional array
 			}
-
+			wholeDoc.close();
 		}
 		
 		
         return data;
+        
 		
 	}
 	
